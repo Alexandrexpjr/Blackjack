@@ -24,7 +24,7 @@ class Game:
 
     if (len(winners) == 0): return print('Nobody wins :(')
     if (len(winners) == 1): return print(f'{winners[0]} won the game!')
-    if (len(winners) > 1): return print(f'{", ".join(winners)} tied and won the game!')
+    if (len(winners) > 1): return print(f'{", ".join(winners)} tied with {max_value} and won the game!')
 
   def reset_game(self):
     self.deck.resetDeck()
@@ -91,10 +91,11 @@ for suit in suits:
 deck.fullDeck = deck.cardsObj.copy() # To have a reference of the fullDeck
 
 player1 = Player('Isabella')
-player2 = Player('Alexandre')
+player2 = Player('Alexander')
 player3 = Player('Julia')
+player4 = Player('John')
 
-game = Game(deck, [player1, player2, player3])
+game = Game(deck, [player1, player2, player3, player4])
 
 game.start()
 
