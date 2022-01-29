@@ -39,8 +39,12 @@ class Game:
     has_ace = player.checkAce()
 
     if (sum <= 11 and has_ace): sum += 10 # Here, if the player has an ace and the sum is lower or equal than 11, Ace assume the value of 11
-
     self.players_info[player.name] = sum
+
+    return sum
+
+  def sum_handler(self, player):
+    sum = self.check_sum(player)
     if (sum < 21): print(f'{player.name} has made {sum}.')
     if (sum == 21): print(f'Amazing! {player.name} has made {sum}!')
     if (sum > 21): print(f'Busted! {player.name} have a total over 21.')
@@ -54,6 +58,8 @@ class Game:
       if(wanna_stop == 'N'):
         player.drawCard(self.deck.drawCard())
         print(player.get_cards_name())
+        sum = self.check_sum(player)
+        if sum >= 21: stop = True
       else: stop = True
 
   def start(self):
@@ -65,7 +71,7 @@ class Game:
 
     for player in self.players:
       self.check_stop(player)
-      self.check_sum(player)
+      self.sum_handler(player)
 
     self.check_winner()
     play_again = input('Do you want to play again? Y/N ')
