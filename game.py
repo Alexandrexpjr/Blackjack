@@ -92,8 +92,9 @@ deck.fullDeck = deck.cardsObj.copy() # To have a reference of the fullDeck
 
 player1 = Player('Isabella')
 player2 = Player('Alexandre')
+player3 = Player('Julia')
 
-game = Game(deck, [player1, player2])
+game = Game(deck, [player1, player2, player3])
 
 game.start()
 
